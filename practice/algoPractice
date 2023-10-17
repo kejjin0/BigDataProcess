@@ -1,0 +1,19 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+int main(void)
+{
+	int num;
+	int count;
+	long long n1;
+
+	while (scanf("%d", &num) != EOF) {
+		count = 1;
+		n1 = 1;
+		while (n1 % num != 0) {
+			n1 = (n1 % num) * 10 + 1;
+			count++;
+		}
+
+		printf("%d\n", count);
+	}
+}
