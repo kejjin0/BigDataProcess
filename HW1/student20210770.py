@@ -60,13 +60,14 @@ i=0
 for total in totalList:
 	if i < gradeA:
 		aList.append(total)
+		i = i + 1
 	elif i < gradeB:
 		bList.append(total)
+		i = i + 1
 	elif total < 40:
 		fList.append(total)
 	else:
  		cList.append(total)
-	i = i + 1
 
 for total in reversed(aList):
 	if bList[0] == total:
