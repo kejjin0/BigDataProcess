@@ -13,6 +13,12 @@ count=0
 all={}
 totalList= []
 
+
+aList=[]
+bList=[]
+cList=[]
+fList=[]
+
 for i in range(2,76):
 	total =0
 	for j in range(67,71):
@@ -26,6 +32,10 @@ for i in range(2,76):
 		else:
 			multi=1
 		total = total + (rangeE[find].value *multi )
+		if multi==1 and rangeE[find].value == 0:
+			total = 0
+
+				
 	find = chr(71) + str(i)
 	ws[find] = total
 	count += 1
@@ -45,10 +55,6 @@ gradeB = math.trunc ( count * 0.7 )
 
 
 
-aList=[]
-bList=[]
-cList=[]
-fList=[]
 
 i=0
 for total in totalList:
