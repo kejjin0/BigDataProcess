@@ -58,7 +58,7 @@ gradeB = math.trunc ( count * 0.7 )
 
 i=0
 for total in totalList:
-        if total < 40:
+        if total <= 40:
                 fList.append(total)
         elif i < gradeA:
                 aList.append(total)
