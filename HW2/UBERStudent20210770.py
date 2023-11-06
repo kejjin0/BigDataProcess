@@ -6,7 +6,7 @@ import calendar
 inputFile = str(sys.argv[1])
 outputFile = str(sys.argv[2])
 
-week = ["MON", "TUE", "WED", "THU", "FTI", "SAT", "SUN"]
+week = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
 
 list = []
 region = {}
@@ -31,18 +31,9 @@ with open(inputFile, "rt") as f:
 			
 		value = region[info[0]]
 
-		##delete
-		#if info[0]=='B02512':
-		#	print(value)
-		
-
 		value[w][0] = str( int(value[w][0]) + int(info[2]) )
 		value[w][1] = str( int(value[w][1]) + int(info[3]) )
 
-		#if info[0]=='B02512':
-		#	print(value)
-		#	print('------------')
-		
 		region[info[0]] = value
 
 result=[]
@@ -56,8 +47,6 @@ for key in keys:
 		buff.append(value[i][0])
 		buff.append(value[i][1])
 		result.append(buff)
-
-#print(result)
 
 with open(outputFile, "wt") as writeF:
 
