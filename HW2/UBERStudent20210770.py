@@ -11,6 +11,7 @@ week = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
 list = []
 region = {}
 
+count=0
 with open(inputFile, "rt") as f:
 	data = f.read()
 
@@ -24,6 +25,10 @@ with open(inputFile, "rt") as f:
 		
 		w = calendar.weekday(year, month, day)
 		info[1] = w
+
+		if count==0:
+			firstWeek = w
+			count = count + 1
 		
 		if region.get(info[0]) == None:
 			buff = [ [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
@@ -40,13 +45,23 @@ result=[]
 
 keys = region.keys()
 for key in keys:
-	for i in range(7):
+	for i in range(firstWeek,7):
 		buff = [key]
 		buff.append(week[i])
 		value = region[key]
 		buff.append(value[i][0])
 		buff.append(value[i][1])
 		result.append(buff)
+
+	for i in range(0,firstWeek):
+		buff = [key]
+		buff.append(week[i])
+		value = region[key]
+		buff.append(value[i][0])
+		buff.append(value[i][1])
+		result.append(buff)
+
+#print(result)
 
 with open(outputFile, "wt") as writeF:
 
