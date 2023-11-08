@@ -8,7 +8,6 @@ outputFile = str(sys.argv[2])
 
 week = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
 
-list = []
 region = {}
 
 count=0
@@ -18,6 +17,8 @@ with open(inputFile, "rt") as f:
 	lines = data.split("\n")
 	for line in lines:
 		info = line.split(",")
+		if len(info) == 1:
+			break
 		date = info[1].split("/")
 		month = int(date[0])
 		day = int(date[1])
@@ -41,6 +42,9 @@ with open(inputFile, "rt") as f:
 
 		region[info[0]] = value
 
+#print(region)
+
+
 result=[]
 
 keys = region.keys()
@@ -62,6 +66,7 @@ for key in keys:
 		result.append(buff)
 
 #print(result)
+#print(len(result))
 
 with open(outputFile, "wt") as writeF:
 
@@ -75,5 +80,5 @@ with open(outputFile, "wt") as writeF:
 		day = arr[1]
 		vehicles = arr[2]
 		trips = arr[3]
-		string = regionN + "," + day + " " + vehicles + "," + trips + "\n"
-		writeF.write(string)
+		writeStr = regionN + "," + day + " " + vehicles + "," + trips + "\n"
+		writeF.write(writeStr)
